@@ -1,0 +1,105 @@
+# Notice how the first one creates a new variable and
+# the second one modifies the variable in the parameter
+
+
+#Section 1
+
+"""
+
+def double(number: int) -> int:
+    new_number = number * 2
+    return new_number
+ 
+def double_mutate(number: int) -> int:
+    number = number * 2
+    return number
+ 
+price = 5
+new_price = double(price)
+ 
+cost = 5
+new_cost = double_mutate(cost)
+"""
+
+# Section 2
+
+"""
+
+# wait.... whats +=?? we can do that to strings?! cool!
+# string = ""
+# for i in range(10):
+#     string += str(i)
+#     print(string)
+#     
+# print("result = " + string)
+
+
+def shout(text: str) -> str:
+    new_text = text.upper() + "!"
+    return new_text
+
+
+def shout_mutate(text: str) -> str:
+    text = text.upper()
+    text += "!"
+    return text
+ 
+word = "apple"
+new_word = shout(word)
+ 
+message = "hello"
+new_message = shout_mutate(message)
+
+"""
+
+# Section 3
+
+"""
+from dataclasses import dataclass
+ 
+@dataclass
+class Lightbulb:
+    on: bool
+    color: str
+
+# not bulb.on?!? what does that do?
+# whats not True, or not False?
+# whats not 27? not 0? not "False"? (truthyness...)
+
+def flip(bulb: Lightbulb) -> Lightbulb:
+    new_bulb = Lightbulb(not bulb.on, bulb.color)
+    return new_bulb
+ 
+def flip_mutate(bulb: Lightbulb) -> Lightbulb:
+    bulb.on = not bulb.on
+    return bulb
+ 
+hallway = Lightbulb(True, 'white')
+new_hallway = flip(hallway)
+ 
+kitchen = Lightbulb(True, 'white')
+new_kitchen = flip_mutate(kitchen)
+"""
+
+# Section 4
+
+"""
+def add_third(numbers: list[int]) -> list[int]:
+    new_numbers = [numbers[0], numbers[1]]
+    new_numbers.append(0)
+    return new_numbers
+ 
+def add_third_mutate(numbers: list[int]) -> list[int]:
+    numbers.append(0)
+    return numbers
+ 
+values = [1, 2]
+new_values = add_third(values)
+ 
+integers = [1, 2]
+new_integers = add_third_mutate(integers)
+
+# where is the 0?? where does append append to?
+#print(values)
+#print(integers)
+"""
